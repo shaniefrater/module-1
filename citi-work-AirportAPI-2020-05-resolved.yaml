@@ -1,0 +1,114 @@
+---
+openapi: 3.0.0
+info:
+  title: Airports API
+  description: A test project to generate API docs
+  contact:
+    name: Multiverse
+    url: https://www.multiverse.io
+  license:
+    name: MIT
+    url: https://choosealicense.com/licenses/mit/
+  version: 2020-05
+servers:
+- url: https://virtserver.swaggerhub.com/citi-work/AirportAPI/2020-05
+  description: SwaggerHub API Auto Mocking
+- url: http://localhost:3000
+tags:
+- name: Airports
+  description: Airport management
+paths:
+  /airports:
+    get:
+      tags:
+      - Airports
+      summary: returns an array of airports
+      responses:
+        "200":
+          description: returns an array of airports
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Airport'
+    post:
+      tags:
+      - Airports
+      summary: creating a new airport
+      requestBody:
+        description: request body for post new airport
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Airport'
+        required: true
+      responses:
+        "201":
+          description: creates new airport
+    delete:
+      tags:
+      - Airports
+      summary: deletes airport
+      responses:
+        "200":
+          description: deletes airport not in use
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Airport'
+    patch:
+      tags:
+      - Airports
+      summary: updates existing information for airport
+      requestBody:
+        description: request updated field for airport
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Airport'
+        required: true
+      responses:
+        "204":
+          description: updates airport information
+components:
+  schemas:
+    Airport:
+      type: object
+      properties:
+        icao:
+          type: string
+        iata:
+          type: string
+        name:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        flight no:
+          type: string
+        elevation:
+          type: integer
+        lat:
+          type: number
+        lon:
+          type: number
+        tz:
+          type: string
+      example:
+        icao: 00AK
+        iata: ""
+        name: Lowell Field
+        city: Anchor Point
+        state: Alaska
+        country: US
+        flight no: AP23041
+        elevation: 450
+        lat: 59.94919968
+        lon: -151.695999146
+        tz: America/Anchorage

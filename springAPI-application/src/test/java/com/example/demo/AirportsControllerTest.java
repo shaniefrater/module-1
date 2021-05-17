@@ -26,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
-public class AirportAPITest {
+public class AirportsControllerTest {
 	private static final ObjectMapper om = new ObjectMapper();
 	@Autowired
 	private MockMvc mockMvc;

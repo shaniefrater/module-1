@@ -1,0 +1,8 @@
+  auth0:your Auth
+  audience: https://users
+  spring:
+    security:
+      oauth2:
+        resourceserver:
+          jwt:
+            issuer-uri: https://dev-ryscyd-70.eu.auth0.com/oauth/token
